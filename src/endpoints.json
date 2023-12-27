@@ -1,14 +1,18 @@
 [
     {
-        "name": "Beryllgatan"
+        "name": "Beryllgatan",
+        "gid": ["9021014001410000"]
     },
     {
-        "name": "Frölunda Torg"
+        "name": "Frölunda Torg",
+        "gid": ["9021014002530000", "9021014002540000"]
     },
     {
-        "name": "Kungsportsplatsen"
+        "name": "Kungsportsplatsen",
+        "gid": ["9021014004090000"]
     },
     {
-        "name": "Redbergsplatsen"
+        "name": "Redbergsplatsen",
+        "gid": ["9021014005460000"]
     }
 ]
