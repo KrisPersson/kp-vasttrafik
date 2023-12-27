@@ -14,7 +14,7 @@ async function getApiToken() {
           })
         if (response.status === 200) {
             const data = await response.json()
-            return data
+            return data.access_token
         } else {
             throw Error()
         }
@@ -26,7 +26,6 @@ async function getApiToken() {
 async function getResource(urlExtension) {
     try {
         const token = localStorage.getItem('access_token') || ""
-        console.log(token)
         const response = await fetch(BASE_URL + urlExtension, {
             method: 'GET',
             headers: {

@@ -1,10 +1,9 @@
 import "./SubHeader.scss";
 import endpoints from "../../endpoints.json";
-
-console.log(endpoints);
+import { Endpoint } from "../../types/index";
 
 export default function SubHeader({ selectedOrigin, setSelectedOrigin }) {
-  const liItems = endpoints.map((endpoint, i) => {
+  const liItems = endpoints.map((endpoint: Endpoint, i: number) => {
     const isSelected = selectedOrigin === endpoint.name;
     return (
       <li
