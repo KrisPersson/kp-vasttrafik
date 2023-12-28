@@ -1,6 +1,10 @@
 @import "./scss/typography";
 @import "./scss/variables";
+@import "./scss/mixins";
 
+* {
+  box-sizing: border-box;
+}
 
 html {
   font-size: 62.5%;
@@ -19,9 +23,15 @@ body {
   max-width: 1440px;
   margin: 0 auto;
   text-align: center;
-  border: 1px solid black;
+  // border: 1px solid black;
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 11.6rem 11.6rem 1fr;
+}
+
+main {
+  grid-row: 3 / span 1;
+  grid-column: 1 / -1;
+  @include center;
 }

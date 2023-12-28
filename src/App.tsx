@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.scss";
 import Header from "./components/Header/Header";
 import SubHeader from "./components/SubHeader/SubHeader";
+import DestinationBoard from "./components/DestinationBoard/DestinationBoard";
 import { getApiToken, getResource } from "./api/api.jsx";
 import { Endpoint } from "./types/index";
 import { JourneyResult, JourneyResultArray } from "./types/journey";
@@ -12,22 +13,21 @@ if (!localStorage.getItem("access_token")) {
   localStorage.setItem("access_token", JSON.stringify(apiToken));
 }
 
-const endPointBeryllgatan = endpoints.find(
-  (endpoint: Endpoint) => endpoint.name === "Beryllgatan"
-);
-const endPointFrolundaTorg = endpoints.find(
-  (endpoint: Endpoint) => endpoint.name === "Frölunda Torg"
-);
-const endPointKungsportsplatsen = endpoints.find(
-  (endpoint: Endpoint) => endpoint.name === "Kungsportsplatsen"
-);
-const endPointRedbergsplatsen = endpoints.find(
-  (endpoint: Endpoint) => endpoint.name === "Redbergsplatsen"
-);
-const resource = await getResource(
-  `/journeys?originGid=${endPointBeryllgatan.gid[0]}&destinationGid=${endPointFrolundaTorg.gid[0]}`
-);
-console.log(resource);
+// const endPointBeryllgatan = endpoints.find(
+//   (endpoint: Endpoint) => endpoint.name === "Beryllgatan"
+// );
+// const endPointFrolundaTorg = endpoints.find(
+//   (endpoint: Endpoint) => endpoint.name === "Frölunda Torg"
+// );
+// const endPointKungsportsplatsen = endpoints.find(
+//   (endpoint: Endpoint) => endpoint.name === "Kungsportsplatsen"
+// );
+// const endPointRedbergsplatsen = endpoints.find(
+//   (endpoint: Endpoint) => endpoint.name === "Redbergsplatsen"
+// const resource = await getResource(
+//   `/journeys?originGid=${endPointBeryllgatan.gid[0]}&destinationGid=${endPointFrolundaTorg.gid[0]}`
+// );
+// console.log(resource);
 
 function App() {
   const [selectedOrigin, setSelectedOrigin] = useState("Beryllgatan");
@@ -64,9 +64,9 @@ function App() {
     setCurrentJourneys([...returnArr]);
   }
 
-  useEffect(() => {
-    getCurrentJourneys(selectedOrigin);
-  }, [selectedOrigin]);
+  // useEffect(() => {
+  //   getCurrentJourneys(selectedOrigin);
+  // }, [selectedOrigin]);
 
   return (
     <>
@@ -75,6 +75,9 @@ function App() {
         selectedOrigin={selectedOrigin}
         setSelectedOrigin={setSelectedOrigin}
       />
+      <main>
+        <DestinationBoard />
+      </main>
     </>
   );
 }
