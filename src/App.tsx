@@ -13,23 +13,17 @@ if (!localStorage.getItem("access_token")) {
   localStorage.setItem("access_token", JSON.stringify(apiToken));
 }
 
-// const endPointBeryllgatan = endpoints.find(
-//   (endpoint: Endpoint) => endpoint.name === "Beryllgatan"
-// );
-// const endPointFrolundaTorg = endpoints.find(
-//   (endpoint: Endpoint) => endpoint.name === "Frölunda Torg"
-// );
-// const endPointKungsportsplatsen = endpoints.find(
-//   (endpoint: Endpoint) => endpoint.name === "Kungsportsplatsen"
-// );
-// const endPointRedbergsplatsen = endpoints.find(
-//   (endpoint: Endpoint) => endpoint.name === "Redbergsplatsen"
-// const resource = await getResource(
-//   `/journeys?originGid=${endPointBeryllgatan.gid[0]}&destinationGid=${endPointFrolundaTorg.gid[0]}`
-// );
-// console.log(resource);
+const testFetch = await getResource(
+  `/journeys?originGid=9021014005460000&destinationGid=9021014004090000`
+);
+
+if (!testFetch) {
+  const apiToken = await getApiToken();
+  localStorage.setItem("access_token", JSON.stringify(apiToken));
+}
 
 function App() {
+  const [isFetching, setIsFetching] = useState(false);
   const [selectedOrigin, setSelectedOrigin] = useState("Beryllgatan");
   const [currentJourneys, setCurrentJourneys] = useState<JourneyResultArray>([
     [],
@@ -38,6 +32,7 @@ function App() {
   ]);
 
   async function getCurrentJourneys(selectedOrigin: string) {
+    setIsFetching(true);
     let returnArr: JourneyResultArray = [[], [], []];
     const originEndpoint = endpoints.find(
       (endpoint: Endpoint) => endpoint.name === selectedOrigin
@@ -61,12 +56,13 @@ function App() {
     ];
 
     console.log(returnArr);
+    setIsFetching(false);
     setCurrentJourneys([...returnArr]);
   }
 
-  // useEffect(() => {
-  //   getCurrentJourneys(selectedOrigin);
-  // }, [selectedOrigin]);
+  useEffect(() => {
+    getCurrentJourneys(selectedOrigin);
+  }, [selectedOrigin]);
 
   return (
     <>
@@ -76,7 +72,15 @@ function App() {
         setSelectedOrigin={setSelectedOrigin}
       />
       <main>
-        <DestinationBoard />
+        {isFetching ? (
+          <p className="error-message">Loading journeys...</p>
+        ) : currentJourneys.every((arr) => arr.length === 0) ? (
+          <p className="error-message">Could not fetch journeys</p>
+        ) : (
+          currentJourneys.map((journeys, i: number) => {
+            return <DestinationBoard key={i} journeyResults={journeys} />;
+          })
+        )}
       </main>
     </>
   );

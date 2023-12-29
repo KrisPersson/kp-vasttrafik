@@ -9,10 +9,10 @@ export type JourneyResult = {
   detailsReference: string;
   isDeparted: boolean;
   reconstructionReference: string;
-  tripLegs: TripLeg[];
+  tripLegs: TypeTripLeg[];
 };
 
-export type TripLeg = {
+export type TypeTripLeg = {
   destination: DestinationOrigin;
   estimatedArrivalTime: string;
   estimatedDepartureTime: string;
@@ -27,6 +27,7 @@ export type TripLeg = {
   plannedArrivalTime: string;
   plannedDepartureTime: string;
   plannedDurationInMinutes: number;
+  serviceJourney: ServiceJourney;
 };
 
 export type ServiceJourney = {

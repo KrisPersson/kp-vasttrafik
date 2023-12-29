@@ -36,6 +36,9 @@ async function getResource(urlExtension) {
         if (response.status === 200) {
             const data = await response.json()
             return data
+        } else if (response.status === 401) {
+            const newToken = await getApiToken();
+            localStorage.setItem("access_token", JSON.stringify(newToken)); 
         } else {
             throw Error()
         }

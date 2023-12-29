@@ -34,4 +34,12 @@ main {
   grid-row: 3 / span 1;
   grid-column: 1 / -1;
   @include center;
+  justify-content: space-evenly;
+}
+
+.error-message {
+  color: white;
+  font-size: 3rem;
+  margin: auto;  
+  opacity: 0.9;
 }
