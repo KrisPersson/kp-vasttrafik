@@ -3,6 +3,7 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import SubHeader from "./components/SubHeader/SubHeader";
 import DestinationBoard from "./components/DestinationBoard/DestinationBoard";
+import DesignBall from "./components/DesignBall/DesignBall";
 import { getApiToken, getResource } from "./api/api.jsx";
 import { Endpoint } from "./types/index";
 import { JourneyResult, JourneyResultArray } from "./types/journey";
@@ -66,6 +67,18 @@ function App() {
 
   return (
     <>
+      <DesignBall
+        color="#E2A2EE"
+        leftPx={"155px"}
+        rightPx="unset"
+        topPx={"-285px"}
+      />
+      <DesignBall
+        color="#A2A5EE"
+        leftPx="unset"
+        rightPx="-123px"
+        topPx={"-250px"}
+      />
       <Header />
       <SubHeader
         selectedOrigin={selectedOrigin}

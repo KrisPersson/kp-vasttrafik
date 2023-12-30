@@ -1,0 +1,11 @@
+
+.design-ball {
+    width: 35rem;
+    height: 35rem;
+    border-radius: 50%;
+    filter: blur(100px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}

@@ -32,7 +32,7 @@
         margin: 0;
         text-align: left;
         width: 100%;
-
+        opacity: 0.9;
     }
 
     .tripleg-divider {
@@ -80,7 +80,7 @@
 .platform {
     font-size: 1.6rem;
     margin: 0;
-    opacity: 0.45;
+    opacity: 0.45 !important;
     text-align: left;
     width: 100%;
     letter-spacing: 0.75px;
