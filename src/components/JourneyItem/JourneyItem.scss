@@ -3,25 +3,26 @@
 
 .journey-item {
     width: 100%;
-    min-height: 6.7rem;
+    min-height: 8rem;
     background-color: $tripItemBgColor;
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     border-radius: 7px;
     margin: 2rem 0;
+    position: relative;
 
 
     &__tripleg {
         width: inherit;
-        height: 6.7rem;
+        height: 8rem;
         display: grid;
         grid-template-columns: 12.5% 31% 13% 31% 12.5%;
         grid-template-rows: 1fr;
     }
 
     .time {
-        font-size: 2rem;
+        font-size: 1.8rem;
         margin: 0;
         width: fit-content;
     }
@@ -47,8 +48,10 @@
         background-color: $green;
         @include center;
         justify-content: center;
+        align-items: center;
         font-size: 1.75rem;
         border: 1px solid black;
+        text-align: center;
     }
 
     
@@ -71,7 +74,7 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
-    transform: translateY(-3px);
+    transform: translateY(-4px);
 }
 
 .platform {
@@ -81,4 +84,39 @@
     text-align: left;
     width: 100%;
     letter-spacing: 0.75px;
+}
+
+.open-close-btn {
+    width: 3.5rem;
+    height: 1.5rem;
+    position: absolute;
+    bottom: -1.5rem;
+    border: none;
+    background-color: $tripItemBgColor;
+
+    .btn-arrow {
+        z-index: 2;
+        font-size: 2rem;
+        transform: translateY(-4px);
+    }
+}
+
+.open-close-btn:hover {
+    color: rgb(71, 71, 71);
+    cursor: pointer;
+}
+
+.open-close-btn::before {
+    content: '';
+    min-width: 1.1rem;
+    min-height: 0rem;
+    background: $moduleBgColor;
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    bottom:-1rem;
+
+    border: 10px solid $tripItemBgColor;
+    border-color: $tripItemBgColor transparent transparent transparent;
 }

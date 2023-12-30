@@ -1,0 +1,27 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
+
+
+.tripleg__lines--agg {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    transform: translateY(2px);
+    position: relative;
+
+    .line-container--agg {
+        position: absolute;
+    }
+
+    i {
+        position: absolute;
+        font-size: 1.3rem;
+        opacity: 0.5;
+        bottom: 11px;
+        left: 0;
+        right: 0;
+    }
+
+}

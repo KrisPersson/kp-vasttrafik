@@ -3,8 +3,13 @@ import { TypeTripLeg } from "../../types/journey";
 
 export default function TripLeg({ tripLeg }: { tripLeg: TypeTripLeg }) {
   console.log(tripLeg);
-  const departureTime = new Date(tripLeg.origin.estimatedTime);
-  const arrivalTime = new Date(tripLeg.destination.estimatedTime);
+  const departureTime = new Date(
+    tripLeg.origin.estimatedTime || tripLeg.origin.estimatedOtherwisePlannedTime
+  );
+  const arrivalTime = new Date(
+    tripLeg.destination.estimatedTime ||
+      tripLeg.destination.estimatedOtherwisePlannedTime
+  );
 
   const lineStyle = {
     color: tripLeg.serviceJourney.line.foregroundColor || "",

@@ -16,9 +16,8 @@ export default function DestinationBoard({
   return (
     <article className="destination-board">
       <section className="destination-board__header">
-        <h3>{destinationName}</h3>
+        <h3>{destinationName.replace("Spårvagn", "")}</h3>
       </section>
-
       <section className="destination-board__main">
         <JourneyItem journey={journeyResults[0]} />
       </section>

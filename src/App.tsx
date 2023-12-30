@@ -73,7 +73,7 @@ function App() {
       />
       <main>
         {isFetching ? (
-          <p className="error-message">Loading journeys...</p>
+          <p className="error-message">Laddar resor...</p>
         ) : currentJourneys.every((arr) => arr.length === 0) ? (
           <p className="error-message">Could not fetch journeys</p>
         ) : (
