@@ -22,6 +22,7 @@ export default function AggregateTripLeg({
       backgroundColor: leg.serviceJourney.line.backgroundColor || "",
       borderColor: leg.serviceJourney.line.borderColor || "",
       transform: `translateX(${i * 8}px)`,
+      marginRight: `${i + 8}px`,
       zIndex: 10 - i,
     };
   });
