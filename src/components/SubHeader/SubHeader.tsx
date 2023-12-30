@@ -2,7 +2,13 @@ import "./SubHeader.scss";
 import endpoints from "../../endpoints.json";
 import { Endpoint } from "../../types/index";
 
-export default function SubHeader({ selectedOrigin, setSelectedOrigin }) {
+export default function SubHeader({
+  selectedOrigin,
+  setSelectedOrigin,
+}: {
+  selectedOrigin: string;
+  setSelectedOrigin: React.Dispatch<React.SetStateAction<string>>;
+}) {
   const liItems = endpoints.map((endpoint: Endpoint, i: number) => {
     const isSelected = selectedOrigin === endpoint.name;
     return (
