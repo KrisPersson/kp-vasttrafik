@@ -6,7 +6,7 @@ import DestinationBoard from "./components/DestinationBoard/DestinationBoard";
 import DesignBall from "./components/DesignBall/DesignBall";
 import { getApiToken, getResource } from "./api/api.jsx";
 import { Endpoint } from "./types/index";
-import { JourneyResult, JourneyResultArray } from "./types/journey";
+import { JourneyResultArray } from "./types/journey";
 import endpoints from "./endpoints.json";
 
 if (!localStorage.getItem("access_token")) {
